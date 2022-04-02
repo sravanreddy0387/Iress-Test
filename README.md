@@ -1,7 +1,6 @@
 Iress-Test
 
 To Run the app
-
 npm install,
 
 To type in commands from terminal
