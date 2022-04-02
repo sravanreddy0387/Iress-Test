@@ -1,7 +1,14 @@
 Iress-Test
 
-To Run the app 
+To Run the app
+
 npm install,
-npm start // to type in commands from terminal
-npm start files/c.txt // to read commands from file
-npm run test // to run the specs 
+
+To type in commands from terminal
+npm start 
+
+To read commands from file
+npm start files/c.txt
+
+To run the specs 
+npm run test 
