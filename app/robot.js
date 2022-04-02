@@ -29,7 +29,7 @@ class Robot {
 
   validate = (x, y, facing) => {
     if (!facing) {
-      return "no Facing";
+      return "Invalid Direction";
     }
 
     const f = facing.toUpperCase(),
@@ -37,11 +37,11 @@ class Robot {
       yA = parseInt(y);
 
     if (xA < 0 || yA < 0) {
-      return "no Facing";
+      return "No negative values";
     }
 
     if (!this.isDirectionValid(f)) {
-      return "In Valid Direction";
+      return "Invalid Direction";
     }
 
     return {
@@ -70,13 +70,12 @@ class Robot {
   };
 
   place = (x, y, f) => {
-    console.log(x, y, f);
     let arg = {};
 
-    try {
-      arg = this.validate(x, y, f);
-    } catch (e) {
-      return e;
+    arg = this.validate(x, y, f);
+
+    if (!arg.x && !arg.y && !arg.f) {
+      return arg
     }
 
     if (this.isOutOfGrid(arg.x, arg.y)) {
@@ -87,7 +86,7 @@ class Robot {
 
     if (!this.isRoboPlaced) this.isRoboPlaced = true;
 
-    return this;
+    return "Robo placed at: " + arg.x + "," + arg.y + "," + arg.f;
   };
 
   move = () => {
@@ -122,7 +121,7 @@ class Robot {
 
     this.setPosition(x, y, this.directions[f]);
 
-    return this;
+    return "Robo moved to: " + x + "," + y + "," + this.directions[f];
   };
 
   right = () => {
@@ -131,7 +130,7 @@ class Robot {
     }
     this.roboCurrentPosition.f =
       this.roboCurrentPosition.f + 1 > 3 ? 0 : this.roboCurrentPosition.f + 1;
-    return this;
+    return "Robo moved to: " + this.roboCurrentPosition.x + "," + this.roboCurrentPosition.y + "," + this.directions[this.roboCurrentPosition.f];
   };
 
   left = () => {
@@ -140,7 +139,7 @@ class Robot {
     }
     this.roboCurrentPosition.f =
       this.roboCurrentPosition.f - 1 < 0 ? 3 : this.roboCurrentPosition.f - 1;
-    return this;
+    return "Robo moved to: " + this.roboCurrentPosition.x + "," + this.roboCurrentPosition.y + "," + this.directions[this.roboCurrentPosition.f];
   };
 
   report = () => {
@@ -160,4 +159,4 @@ class Robot {
   };
 };
 
-module.exports = new Robot();
+module.exports = Robot;

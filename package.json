@@ -4,7 +4,7 @@
   "description": "Toy Robot Code Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "jasmine",
     "start": "node index.js"
   },
   "author": "Sravan K",

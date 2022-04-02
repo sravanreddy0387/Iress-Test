@@ -1,4 +1,5 @@
-const Robot = require("./app/robot.js");
+const RobotClass = require("./app/robot.js");
+const Robot = new RobotClass();
 const os = require("os"),
   stdin = process.stdin,
   stdout = process.stdout,
@@ -84,12 +85,12 @@ const printMsg = (data) => {
   }
 };
 
-const App = () => {};
+const App = () => { };
 
 App.run = () => {
   stdout.write(
     `Hola! ${EOL} Start by Giving the Command - PLACE X, Y, F Eg: 1,1, South.` +
-      EOL
+    EOL
   );
   stdin.resume();
 };
