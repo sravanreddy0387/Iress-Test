@@ -1,6 +1,6 @@
 Iress-Test
 
-To Run the app<br />
+To Run the app you need to do <br />
 npm install,
 
 To type in commands from terminal<br />
